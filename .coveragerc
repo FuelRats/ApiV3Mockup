@@ -1,0 +1,3 @@
+[run]
+source = apiv3mockup
+omit = apiv3mockup/test*
