@@ -4,15 +4,9 @@ from sqlalchemy import (
     GUID,
     JSON,
     Enum)
-import enum
 
+from apiv3mockup.models.enums.platform import Platform
 from .meta import Base
-
-
-class Platform(enum.Enum):
-    PC = 0,
-    XB = 1,
-    PS = 3,
 
 
 class Rat(Base):

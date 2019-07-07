@@ -1,5 +1,3 @@
-import enum
-
 from sqlalchemy import (
     Column,
     String,
@@ -10,21 +8,10 @@ from sqlalchemy import (
     Enum,
     ARRAY, ForeignKey)
 
-from apiv3mockup.models.rat import Platform
+from apiv3mockup.models.enums.outcome import Outcome
+from apiv3mockup.models.enums.platform import Platform
+from apiv3mockup.models.enums.status import Status
 from .meta import Base
-
-
-class Status(enum.Enum):
-    OPEN = 0,
-    INACTIVE = 1,
-    CLOSED = 2,
-
-
-class Outcome(enum.Enum):
-    SUCCESS = 0,
-    FAILURE = 1,
-    INVALID = 2,
-    OTHER = 3,
 
 
 class Rescue(Base):
