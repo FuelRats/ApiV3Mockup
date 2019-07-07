@@ -8,7 +8,7 @@ from sqlalchemy import (
     Boolean,
     Text,
     Enum,
-    ARRAY)
+    ARRAY, ForeignKey)
 
 from apiv3mockup.models.rat import Platform
 from .meta import Base
@@ -27,7 +27,7 @@ class Outcome(enum.Enum):
     OTHER = 3,
 
 
-class rescue(Base):
+class Rescue(Base):
     __tablename__ = 'rescues'
     id = Column(GUID, primary_key=True)
     client = Column(String(255))
@@ -41,4 +41,4 @@ class rescue(Base):
     title = Column(String)
     outcome = Column(Enum(Outcome))
     unidentifiedRats = Column(ARRAY(String))
-    firstLimpetId = Column(GUID)
+    firstLimpetId = Column(GUID, ForeignKey('rats.id'))
