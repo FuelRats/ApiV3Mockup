@@ -6,6 +6,20 @@ import zope.sqlalchemy
 # import or define all models here to ensure they are attached to the
 # Base.metadata prior to any initialization routines
 from .mymodel import MyModel  # noqa
+from .rat import Rat
+from .actions import Actions
+from .client import Client
+from .code import Code
+from .decal import Decal
+from .epic import Epic
+from .group import Group
+from .npomembership import NPOmembership
+from .rescue import Rescue
+from .rescuerats import RescueRats
+from .ship import Ship
+from .token import Token
+from .user import User
+from .usergroups import UserGroups
 
 # run configure_mappers after defining all of the models to ensure
 # all relationships can be setup

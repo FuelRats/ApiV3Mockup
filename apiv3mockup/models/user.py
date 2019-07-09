@@ -5,7 +5,6 @@ from sqlalchemy import (
     BLOB,
     ARRAY,
     DateTime,
-    GUID,
     Enum)
 
 from .meta import Base
@@ -14,12 +13,12 @@ from .enums.status import UserStatus
 
 class User(Base):
     __tablename__ = 'users'
-    id = Column(GUID)
+    id = Column(String, primary_key=True)
     data = Column(JSON)
     email = Column(String)
     password = Column(String)
-    nicknames = Column(ARRAY)
+    nicknames = Column(ARRAY(String))
     image = Column(BLOB)
     status = Column(Enum(UserStatus))
     suspended = Column(DateTime)
-    permissions = Column(ARRAY)
+    permissions = Column(ARRAY(String))

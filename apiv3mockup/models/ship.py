@@ -1,14 +1,15 @@
 from sqlalchemy import (
     Column,
     String,
-    GUID, Integer, Enum, ForeignKey)
+    Integer, Enum, ForeignKey)
 from .meta import Base
 from .enums.shiptypes import ShipTypes
 
 
-class Client(Base):
-    id = Column(GUID)
+class Ship(Base):
+    __tablename__ = 'ships'
+    id = Column(String, primary_key=True)
     name = Column(String)
     shipId = Column(Integer)
     shipType = Column(Enum(ShipTypes))
-    ratId = Column(GUID, ForeignKey('rats.id'))
+    ratId = Column(String, ForeignKey('rats.id'))

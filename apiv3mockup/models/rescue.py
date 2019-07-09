@@ -1,7 +1,6 @@
 from sqlalchemy import (
     Column,
     String,
-    GUID,
     JSON,
     Boolean,
     Text,
@@ -16,7 +15,7 @@ from .meta import Base
 
 class Rescue(Base):
     __tablename__ = 'rescues'
-    id = Column(GUID, primary_key=True)
+    id = Column(String, primary_key=True)
     client = Column(String(255))
     codeRed = Column(Boolean)
     data = Column(JSON)
@@ -28,4 +27,4 @@ class Rescue(Base):
     title = Column(String)
     outcome = Column(Enum(Outcome))
     unidentifiedRats = Column(ARRAY(String))
-    firstLimpetId = Column(GUID, ForeignKey('rats.id'))
+    firstLimpetId = Column(String, ForeignKey('rats.id'))
