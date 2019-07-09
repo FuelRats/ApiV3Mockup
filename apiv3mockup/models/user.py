@@ -7,8 +7,8 @@ from sqlalchemy import (
     DateTime,
     Enum)
 
+from apiv3mockup.models.enums.userStatus import UserStatus
 from .meta import Base
-from .enums.status import UserStatus
 
 
 class User(Base):
