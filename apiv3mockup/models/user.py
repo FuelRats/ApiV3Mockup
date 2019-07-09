@@ -2,10 +2,9 @@ from sqlalchemy import (
     Column,
     String,
     JSON,
-    BLOB,
     ARRAY,
     DateTime,
-    Enum)
+    Enum, LargeBinary)
 
 from apiv3mockup.models.enums.userStatus import UserStatus
 from .meta import Base
@@ -18,7 +17,7 @@ class User(Base):
     email = Column(String)
     password = Column(String)
     nicknames = Column(ARRAY(String))
-    image = Column(BLOB)
+    image = Column(LargeBinary)
     status = Column(Enum(UserStatus))
     suspended = Column(DateTime)
     permissions = Column(ARRAY(String))
