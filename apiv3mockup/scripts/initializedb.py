@@ -14,6 +14,8 @@ from ..models import (
     get_engine,
     get_session_factory,
     get_tm_session,
+    User,
+    Rat
     )
 
 
@@ -36,3 +38,13 @@ def main(argv=sys.argv):
     Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
 
+    session_factory = get_session_factory(engine)
+
+    with transaction.manager:
+        dbsession = get_tm_session(session_factory, transaction.manager)
+
+        model = User()
+        dbsession.add(model)
+        rat = Rat()
+        dbsession.add(rat)
+        dbsession.commit()
