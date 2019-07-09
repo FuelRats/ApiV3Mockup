@@ -11,5 +11,5 @@ class Ship(Base):
     id = Column(String, primary_key=True)
     name = Column(String)
     shipId = Column(Integer)
-    shipType = Column(Enum(ShipTypes))
+    shipType = Column(String)
     ratId = Column(String, ForeignKey('rats.id'))

@@ -13,5 +13,5 @@ class Rat(Base):
     id = Column(String, primary_key=True)
     name = Column(String(255))
     data = Column(JSONB)
-    platform = Column(Enum(Platform))
+    platform = Column(String)
     userId = Column(String, ForeignKey('users.id'))

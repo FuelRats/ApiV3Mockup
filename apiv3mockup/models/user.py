@@ -20,6 +20,6 @@ class User(Base):
     password = Column(String)
     nicknames = Column(ARRAY(String))
     image = Column(LargeBinary)
-    status = Column(Enum(UserStatus))
+    status = Column(String)
     suspended = Column(DateTime)
     permissions = Column(ARRAY(String))
