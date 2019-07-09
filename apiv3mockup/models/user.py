@@ -6,14 +6,14 @@ from sqlalchemy import (
     DateTime,
     Enum, LargeBinary)
 
-from sqlalchemy.dialects.postgresql import JSONB
-
+from sqlalchemy.dialects.postgresql import JSONB, UUID
+from sqlalchemy import text
 from .meta import Base
 
 
 class User(Base):
     __tablename__ = 'users'
-    id = Column(String, primary_key=True)
+    id = Column(UUID, primary_key=True, server_default=text("uuid_generate_v4()"),)
     data = Column(JSONB)
     email = Column(String)
     password = Column(String)
