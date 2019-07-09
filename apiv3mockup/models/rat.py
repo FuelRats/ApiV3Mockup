@@ -1,10 +1,9 @@
 from sqlalchemy import (
     Column,
     String,
-    Enum, ForeignKey)
+    ForeignKey)
 from sqlalchemy.dialects.postgresql import JSONB
 
-from apiv3mockup.models.enums.platform import Platform
 from .meta import Base
 
 
