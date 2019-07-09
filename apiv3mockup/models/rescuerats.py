@@ -9,7 +9,7 @@ from sqlalchemy.orm import relationship
 
 from .meta import Base
 import datetime
-
+from datetime import timezone
 
 class RescueRats(Base):
     __tablename__ = 'rescuerats'
@@ -18,5 +18,5 @@ class RescueRats(Base):
     ratId = Column(UUID, ForeignKey('rats.id'))
     rescue = relationship('Rescue')
     rat = relationship('Rat')
-    createdAt = Column(DateTime, default=datetime.datetime.now())
-    updatedAt = Column(DateTime, default=datetime.datetime.now(), onupdate=datetime.datetime.now())
+    createdAt = Column(DateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat())
+    updatedAt = Column(DateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat(), onupdate=datetime.datetime.now(timezone.utc).astimezone().isoformat())
