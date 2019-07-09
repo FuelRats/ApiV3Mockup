@@ -5,12 +5,14 @@ from sqlalchemy import (
     String,
     Boolean,
     Text,
+    DateTime,
     ARRAY, ForeignKey)
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 
 from .meta import Base
+import datetime
 
 
 class Rescue(Base):
@@ -29,3 +31,5 @@ class Rescue(Base):
     unidentifiedRats = Column(ARRAY(String))
     firstLimpetId = Column(UUID, ForeignKey('rats.id'))
     firstLimpet = relationship('Rat')
+    createdAt = Column(DateTime, default=datetime.datetime.now())
+    updatedAt = Column(DateTime, onupdate=datetime.datetime.now())

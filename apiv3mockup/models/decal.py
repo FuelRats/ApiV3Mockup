@@ -10,6 +10,7 @@ from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 
 from .meta import Base
+import datetime
 
 
 class Decal(Base):
@@ -21,3 +22,5 @@ class Decal(Base):
     notes = Column(Text)
     userId = Column(UUID, ForeignKey('users.id'))
     user = relationship('User')
+    createdAt = Column(DateTime, default=datetime.datetime.now())
+    updatedAt = Column(DateTime, onupdate=datetime.datetime.now())

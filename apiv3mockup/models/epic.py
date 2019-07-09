@@ -3,12 +3,14 @@ from uuid import uuid4
 from sqlalchemy import (
     Column,
     String,
-    ForeignKey
+    ForeignKey,
+    DateTime
 )
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 
 from .meta import Base
+import datetime
 
 
 class Epic(Base):
@@ -23,3 +25,5 @@ class Epic(Base):
     nominatedBy = relationship('User', foreign_keys=[nominatedById])
     rescue = relationship('Rescue')
     rat = relationship('Rat')
+    createdAt = Column(DateTime, default=datetime.datetime.now())
+    updatedAt = Column(DateTime, onupdate=datetime.datetime.now())

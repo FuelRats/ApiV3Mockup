@@ -3,11 +3,13 @@ from uuid import uuid4
 from sqlalchemy import (
     Column,
     String,
+    DateTime,
     ARRAY, ForeignKey)
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 
 from .meta import Base
+import datetime
 
 
 class Code(Base):
@@ -20,3 +22,5 @@ class Code(Base):
     clientId = Column(UUID, ForeignKey('clients.id'))
     user = relationship('User')
     client = relationship('Client')
+    createdAt = Column(DateTime, default=datetime.datetime.now())
+    updatedAt = Column(DateTime, onupdate=datetime.datetime.now())

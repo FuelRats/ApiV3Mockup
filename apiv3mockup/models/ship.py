@@ -3,11 +3,13 @@ from uuid import uuid4
 from sqlalchemy import (
     Column,
     String,
+    DateTime,
     Integer, ForeignKey)
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 
 from .meta import Base
+import datetime
 
 
 class Ship(Base):
@@ -18,3 +20,5 @@ class Ship(Base):
     shipType = Column(String)
     ratId = Column(UUID, ForeignKey('rats.id'))
     rat = relationship('Rat')
+    createdAt = Column(DateTime, default=datetime.datetime.now())
+    updatedAt = Column(DateTime, onupdate=datetime.datetime.now())

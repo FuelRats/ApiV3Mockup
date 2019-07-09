@@ -9,6 +9,7 @@ from sqlalchemy import (
 from sqlalchemy.dialects.postgresql import JSONB, UUID
 
 from .meta import Base
+import datetime
 
 
 class User(Base):
@@ -22,3 +23,5 @@ class User(Base):
     status = Column(String)
     suspended = Column(DateTime)
     permissions = Column(ARRAY(String))
+    createdAt = Column(DateTime, default=datetime.datetime.now())
+    updatedAt = Column(DateTime, onupdate=datetime.datetime.now())

@@ -2,11 +2,13 @@ from uuid import uuid4
 
 from sqlalchemy import (
     Column,
+    DateTime,
     ForeignKey)
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 
 from .meta import Base
+import datetime
 
 
 class RescueRats(Base):
@@ -16,3 +18,5 @@ class RescueRats(Base):
     ratId = Column(UUID, ForeignKey('rats.id'))
     rescue = relationship('Rescue')
     rat = relationship('Rat')
+    createdAt = Column(DateTime, default=datetime.datetime.now())
+    updatedAt = Column(DateTime, onupdate=datetime.datetime.now())
