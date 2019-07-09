@@ -23,7 +23,7 @@ class Rescue(Base):
     data = Column(JSONB)
     notes = Column(Text)
     platform = Column(String)
-    quotes = Column(ARRAY(JSONB))
+    quotes = Column(JSONB)
     status = Column(String)
     system = Column(String)
     title = Column(String)

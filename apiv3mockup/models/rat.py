@@ -14,7 +14,7 @@ import datetime
 
 class Rat(Base):
     __tablename__ = 'rats'
-    id = Column(UUID(as_uuid=True), primary_key=True,default=uuid4,)
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4,)
     name = Column(String(255))
     data = Column(JSONB)
     platform = Column(String)
