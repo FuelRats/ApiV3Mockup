@@ -11,7 +11,7 @@ from .meta import Base
 
 class UserGroups(Base):
     __tablename__ = 'usergroups'
-    id = Column(UUID, primary_key=True, server_default=uuid4, )
+    id = Column(UUID, primary_key=True, default=uuid4, )
     groupId = Column(UUID)
     userId = Column(UUID, ForeignKey('users.id'))
     user = relationship('User')
