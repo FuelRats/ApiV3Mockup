@@ -8,9 +8,9 @@ from sqlalchemy import (
     Enum,
     ARRAY, ForeignKey)
 
-from apiv3mockup.models.enums.outcome import Outcome
-from apiv3mockup.models.enums.platform import Platform
-from apiv3mockup.models.enums.status import Status
+from .enums.outcome import Outcome
+from .enums.platform import Platform
+from .enums.status import Status
 from .meta import Base
 
 
