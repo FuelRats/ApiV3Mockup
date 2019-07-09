@@ -13,3 +13,4 @@ class Group(Base):
     isAdministrator = Column(Boolean)
     priority = Column(Integer)
     permissions = Column(ARRAY)
+
