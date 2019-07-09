@@ -3,13 +3,11 @@ from sqlalchemy import (
     String,
     GUID,
     DateTime,
-    Boolean,
     Text,
-    Enum,
-    ARRAY, ForeignKey)
+    Enum
+)
 
-from .enums.outcome import Outcome
-from .enums.platform import Platform
+
 from .enums.type import Type
 from .meta import Base
 
