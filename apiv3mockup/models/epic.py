@@ -1,18 +1,19 @@
+from uuid import uuid4
+
 from sqlalchemy import (
     Column,
     String,
     ForeignKey
 )
-from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.postgresql import UUID
-from uuid import uuid4
+from sqlalchemy.orm import relationship
 
 from .meta import Base
 
 
 class Epic(Base):
     __tablename__ = 'epics'
-    id = Column(UUID, primary_key=True, default=uuid4,)
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4,)
     notes = Column(String)
     rescueId = Column(UUID, ForeignKey('rescues.id'))
     ratId = Column(UUID, ForeignKey('rats.id'))

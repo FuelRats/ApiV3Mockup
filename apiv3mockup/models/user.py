@@ -1,19 +1,19 @@
+from uuid import uuid4
+
 from sqlalchemy import (
     Column,
     String,
-    JSON,
     ARRAY,
     DateTime,
-    Enum, LargeBinary)
-
+    LargeBinary)
 from sqlalchemy.dialects.postgresql import JSONB, UUID
-from uuid import uuid4
+
 from .meta import Base
 
 
 class User(Base):
     __tablename__ = 'users'
-    id = Column(UUID, primary_key=True, default=uuid4,)
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4,)
     data = Column(JSONB)
     email = Column(String)
     password = Column(String)
