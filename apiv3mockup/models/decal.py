@@ -3,11 +3,9 @@ from sqlalchemy import (
     String,
     DateTime,
     Text,
-    Enum,
     ForeignKey)
 
 
-from .enums.type import Type
 from .meta import Base
 
 

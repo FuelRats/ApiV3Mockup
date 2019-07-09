@@ -20,4 +20,5 @@ def main(global_config, **settings):
     pj.create_jsonapi_using_magic_and_pixie_dust()
     pj.append_callback_set_to_all_views(
         'access_control_serialised_objects')
+
     return config.make_wsgi_app()
