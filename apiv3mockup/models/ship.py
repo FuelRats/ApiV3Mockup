@@ -1,9 +1,9 @@
 from sqlalchemy import (
     Column,
     String,
-    Integer, Enum, ForeignKey)
+    Integer, ForeignKey)
 from .meta import Base
-from .enums.shiptypes import ShipTypes
+
 
 
 class Ship(Base):

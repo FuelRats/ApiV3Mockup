@@ -8,7 +8,6 @@ from sqlalchemy import (
 
 from sqlalchemy.dialects.postgresql import JSONB
 
-from apiv3mockup.models.enums.userStatus import UserStatus
 from .meta import Base
 
 
