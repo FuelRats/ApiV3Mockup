@@ -2,10 +2,10 @@ import enum
 
 
 class ShipTypes(enum.Enum):
-    Adder = 1,
-    Anaconda = 2,
-    AspExplorer = 3,
-    AspScout = 4,
+    Adder = 1
+    Anaconda = 2
+    AspExplorer = 3
+    AspScout = 4
     BelugaLiner = 5
     CobraMkIII = 6
     CobraMkIV = 7

@@ -2,6 +2,7 @@ from sqlalchemy import (
     Column,
     String)
 
+
 from .meta import Base
 
 
