@@ -4,6 +4,7 @@ from sqlalchemy import (
     Boolean,
     Text,
     ARRAY, ForeignKey)
+from sqlalchemy.orm import relationship
 
 from .meta import Base
 
@@ -25,3 +26,4 @@ class Rescue(Base):
     outcome = Column(String)
     unidentifiedRats = Column(ARRAY(String))
     firstLimpetId = Column(String, ForeignKey('rats.id'))
+    firstLimpet = relationship('Rat')

@@ -2,6 +2,8 @@ from sqlalchemy import (
     Column,
     String,
     Integer, ForeignKey)
+from sqlalchemy.orm import relationship
+
 from .meta import Base
 
 
@@ -13,3 +15,4 @@ class Ship(Base):
     shipId = Column(Integer)
     shipType = Column(String)
     ratId = Column(String, ForeignKey('rats.id'))
+    rat = relationship('Rat')

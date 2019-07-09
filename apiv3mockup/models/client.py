@@ -2,6 +2,8 @@ from sqlalchemy import (
     Column,
     String,
     ForeignKey)
+from sqlalchemy.orm import relationship
+
 from .meta import Base
 
 
@@ -12,3 +14,4 @@ class Client(Base):
     secret = Column(String)
     redirectUri = Column(String)
     userId = Column(String, ForeignKey('users.id'))
+    user = relationship("User")

@@ -4,7 +4,7 @@ from sqlalchemy import (
     DateTime,
     Text,
     ForeignKey)
-
+from sqlalchemy.orm import relationship
 
 from .meta import Base
 
@@ -17,3 +17,4 @@ class Decal(Base):
     claimedAt = Column(DateTime)
     notes = Column(Text)
     userId = Column(String, ForeignKey('users.id'))
+    user = relationship('User')

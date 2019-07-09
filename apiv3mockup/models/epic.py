@@ -3,6 +3,8 @@ from sqlalchemy import (
     String,
     ForeignKey
 )
+from sqlalchemy.orm import relationship
+
 from .meta import Base
 
 
@@ -14,3 +16,7 @@ class Epic(Base):
     ratId = Column(String, ForeignKey('rats.id'))
     approvedById = Column(String, ForeignKey('users.id'))
     nominatedById = Column(String, ForeignKey('users.id'))
+    approvedBy = relationship('User')
+    nominatedBy = relationship('User')
+    rescue = relationship('Rescue')
+    rat = relationship('Rat')

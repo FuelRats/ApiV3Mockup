@@ -3,6 +3,7 @@ from sqlalchemy import (
     String,
     ForeignKey)
 from sqlalchemy.dialects.postgresql import JSONB
+from sqlalchemy.orm import relationship
 
 from .meta import Base
 
@@ -14,3 +15,4 @@ class Rat(Base):
     data = Column(JSONB)
     platform = Column(String)
     userId = Column(String, ForeignKey('users.id'))
+    user = relationship('User')
