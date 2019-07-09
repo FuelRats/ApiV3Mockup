@@ -2,15 +2,8 @@ from sqlalchemy import (
     Column,
     String,
     GUID,
-    JSON,
-    Boolean,
-    Text,
-    Enum,
-    ARRAY, ForeignKey)
+    ARRAY)
 
-from .enums.outcome import Outcome
-from .enums.platform import Platform
-from .enums.status import Status
 from .meta import Base
 
 
