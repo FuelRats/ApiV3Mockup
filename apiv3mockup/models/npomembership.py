@@ -11,5 +11,5 @@ from .meta import Base
 class NPOmembership(Base):
     __tablename__ = 'npomembership'
     id = Column(UUID, primary_key=True, default=uuid4,)
-    userId = Column(String, ForeignKey('users.id'))
+    userId = Column(UUID, ForeignKey('users.id'))
     user = relationship('User')
