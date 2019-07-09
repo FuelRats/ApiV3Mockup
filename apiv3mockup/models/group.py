@@ -19,4 +19,4 @@ class Group(Base):
     priority = Column(Integer)
     permissions = Column(ARRAY(String))
     createdAt = Column(DateTime, default=datetime.datetime.now())
-    updatedAt = Column(DateTime, onupdate=datetime.datetime.now())
+    updatedAt = Column(DateTime, default=datetime.datetime.now(), onupdate=datetime.datetime.now())

@@ -24,4 +24,4 @@ class User(Base):
     suspended = Column(DateTime)
     permissions = Column(ARRAY(String))
     createdAt = Column(DateTime, default=datetime.datetime.now())
-    updatedAt = Column(DateTime, onupdate=datetime.datetime.now())
+    updatedAt = Column(DateTime, default=datetime.datetime.now(), onupdate=datetime.datetime.now())

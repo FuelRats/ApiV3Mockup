@@ -21,4 +21,4 @@ class Ship(Base):
     ratId = Column(UUID, ForeignKey('rats.id'))
     rat = relationship('Rat')
     createdAt = Column(DateTime, default=datetime.datetime.now())
-    updatedAt = Column(DateTime, onupdate=datetime.datetime.now())
+    updatedAt = Column(DateTime, default=datetime.datetime.now(), onupdate=datetime.datetime.now())

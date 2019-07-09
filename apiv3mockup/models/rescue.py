@@ -32,4 +32,4 @@ class Rescue(Base):
     firstLimpetId = Column(UUID, ForeignKey('rats.id'))
     firstLimpet = relationship('Rat')
     createdAt = Column(DateTime, default=datetime.datetime.now())
-    updatedAt = Column(DateTime, onupdate=datetime.datetime.now())
+    updatedAt = Column(DateTime, default=datetime.datetime.now(), onupdate=datetime.datetime.now())

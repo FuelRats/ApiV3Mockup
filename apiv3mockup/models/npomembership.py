@@ -17,4 +17,4 @@ class NPOmembership(Base):
     userId = Column(UUID, ForeignKey('users.id'))
     user = relationship('User')
     createdAt = Column(DateTime, default=datetime.datetime.now())
-    updatedAt = Column(DateTime, onupdate=datetime.datetime.now())
+    updatedAt = Column(DateTime, default=datetime.datetime.now(), onupdate=datetime.datetime.now())

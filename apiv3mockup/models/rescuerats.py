@@ -19,4 +19,4 @@ class RescueRats(Base):
     rescue = relationship('Rescue')
     rat = relationship('Rat')
     createdAt = Column(DateTime, default=datetime.datetime.now())
-    updatedAt = Column(DateTime, onupdate=datetime.datetime.now())
+    updatedAt = Column(DateTime, default=datetime.datetime.now(), onupdate=datetime.datetime.now())

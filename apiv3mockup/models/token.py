@@ -23,4 +23,4 @@ class Token(Base):
     user = relationship('User')
     client = relationship('Client')
     createdAt = Column(DateTime, default=datetime.datetime.now())
-    updatedAt = Column(DateTime, onupdate=datetime.datetime.now())
+    updatedAt = Column(DateTime, default=datetime.datetime.now(), onupdate=datetime.datetime.now())
