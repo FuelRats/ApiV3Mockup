@@ -1,22 +1,21 @@
 import os
 import sys
-import transaction
 
+import transaction
 from pyramid.paster import (
     get_appsettings,
     setup_logging,
-    )
-
+)
 from pyramid.scripts.common import parse_vars
 
-from ..models.meta import Base
 from ..models import (
     get_engine,
     get_session_factory,
     get_tm_session,
     User,
     Rat
-    )
+)
+from ..models.meta import Base
 
 
 def usage(argv):
@@ -43,8 +42,15 @@ def main(argv=sys.argv):
     with transaction.manager:
         dbsession = get_tm_session(session_factory, transaction.manager)
 
-        model = User()
-        dbsession.add(model)
-        rat = Rat()
+        user1 = User(email='user1@example.com', status='active')
+        dbsession.add(user1)
+        user2 = User(email='user2@example.com', status='active')
+        dbsession.add(user2)
+        user3 = User(email='user3@example.com', status='active')
+        dbsession.add(user3)
+        rat = Rat(name="rat1", platform='pc', user=user1.id)
         dbsession.add(rat)
-        dbsession.commit()
+        rat = Rat(name="rat2", platform='pc', user=user2.id)
+        dbsession.add(rat)
+        rat = Rat(name="rat3", platform='pc', user=user3.id)
+        dbsession.add(rat)
