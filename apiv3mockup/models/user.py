@@ -7,13 +7,13 @@ from sqlalchemy import (
     Enum, LargeBinary)
 
 from sqlalchemy.dialects.postgresql import JSONB, UUID
-from sqlalchemy import text
+from uuid import uuid4
 from .meta import Base
 
 
 class User(Base):
     __tablename__ = 'users'
-    id = Column(UUID, primary_key=True, server_default=text("uuid_generate_v4()"),)
+    id = Column(UUID, primary_key=True, default=uuid4,)
     data = Column(JSONB)
     email = Column(String)
     password = Column(String)

@@ -6,7 +6,8 @@ from sqlalchemy import (
     ARRAY, ForeignKey)
 from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.postgresql import UUID
-from sqlalchemy import text
+from uuid import uuid4
+
 from .meta import Base
 
 from sqlalchemy.dialects.postgresql import JSONB
@@ -14,7 +15,7 @@ from sqlalchemy.dialects.postgresql import JSONB
 
 class Rescue(Base):
     __tablename__ = 'rescues'
-    id = Column(UUID, primary_key=True, server_default=text("uuid_generate_v4()"),)
+    id = Column(UUID, primary_key=True, default=uuid4,)
     client = Column(String(255))
     codeRed = Column(Boolean)
     data = Column(JSONB)

@@ -6,14 +6,14 @@ from sqlalchemy import (
     ForeignKey)
 from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.postgresql import UUID
-from sqlalchemy import text
+from uuid import uuid4
 
 from .meta import Base
 
 
 class Decal(Base):
     __tablename__ = 'decals'
-    id = Column(UUID, primary_key=True, server_default=text("uuid_generate_v4()"),)
+    id = Column(UUID, primary_key=True, default=uuid4,)
     code = Column(String)
     type = Column(String)
     claimedAt = Column(DateTime)

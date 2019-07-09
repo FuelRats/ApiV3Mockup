@@ -5,14 +5,14 @@ from sqlalchemy import (
     ForeignKey)
 from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.postgresql import UUID
-from sqlalchemy import text
+from uuid import uuid4
 
 from .meta import Base
 
 
 class Token(Base):
     __tablename__ = 'tokens'
-    id = Column(UUID, primary_key=True, server_default=text("uuid_generate_v4()"),)
+    id = Column(UUID, primary_key=True, default=uuid4,)
     scope = Column(ARRAY(String))
     value = Column(String)
     userId = Column(UUID, ForeignKey('users.id'))

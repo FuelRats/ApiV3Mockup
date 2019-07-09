@@ -4,14 +4,14 @@ from sqlalchemy import (
     ARRAY, ForeignKey)
 from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.postgresql import UUID
-from sqlalchemy import text
+from uuid import uuid4
 
 from .meta import Base
 
 
 class Code(Base):
     __tablename__ = 'codes'
-    id = Column(UUID, primary_key=True, server_default=text("uuid_generate_v4()"),)
+    id = Column(UUID, primary_key=True, default=uuid4,)
     scope = Column(ARRAY(String))
     value = Column(String)
     redirectUri = Column(String)

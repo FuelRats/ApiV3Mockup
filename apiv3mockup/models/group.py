@@ -4,12 +4,12 @@ from sqlalchemy import (
     Boolean, Integer, ARRAY)
 from .meta import Base
 from sqlalchemy.dialects.postgresql import UUID
-from sqlalchemy import text
+from uuid import uuid4
 
 
 class Group(Base):
     __tablename__ = 'groups'
-    id = Column(UUID, primary_key=True, server_default=text("uuid_generate_v4()"),)
+    id = Column(UUID, primary_key=True, default=uuid4,)
     vhost = Column(String)
     isAdministrator = Column(Boolean)
     priority = Column(Integer)

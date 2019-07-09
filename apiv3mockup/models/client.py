@@ -3,14 +3,14 @@ from sqlalchemy import (
     String,
     ForeignKey)
 from sqlalchemy.orm import relationship
-from sqlalchemy import text
+from uuid import uuid4
 from sqlalchemy.dialects.postgresql import UUID
 from .meta import Base
 
 
 class Client(Base):
     __tablename__ = 'clients'
-    id = Column(UUID, primary_key=True, server_default=text("uuid_generate_v4()"),)
+    id = Column(UUID, primary_key=True, default=uuid4,)
     name = Column(String)
     secret = Column(String)
     redirectUri = Column(String)
