@@ -13,6 +13,7 @@ from datetime import timezone
 
 class RescueRats(Base):
     __tablename__ = 'rescuerats'
+    __json_exclude__ = {"createdAt", "updatedAt"}
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4,)
     rescueId = Column(UUID, ForeignKey('rescues.id'))
     ratId = Column(UUID, ForeignKey('rats.id'))

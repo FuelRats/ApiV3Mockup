@@ -15,6 +15,7 @@ from datetime import timezone
 
 class Decal(Base):
     __tablename__ = 'decals'
+    __json_exclude__ = {"createdAt", "updatedAt"}
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4,)
     code = Column(String)
     type = Column(String)

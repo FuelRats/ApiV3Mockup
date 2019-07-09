@@ -10,8 +10,10 @@ from .meta import Base
 import datetime
 from datetime import timezone
 
+
 class Actions(Base):
     __tablename__ = 'actions'
+    __json_exclude__ = {"createdAt", "updatedAt"}
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4,)
     inet = Column(String)
     type = Column(String)

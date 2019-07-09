@@ -14,6 +14,7 @@ from datetime import timezone
 
 class Rat(Base):
     __tablename__ = 'rats'
+    __json_exclude__ = {"createdAt", "updatedAt"}
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4,)
     name = Column(String(255))
     data = Column(JSONB)

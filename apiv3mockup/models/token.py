@@ -15,6 +15,7 @@ from datetime import timezone
 
 class Token(Base):
     __tablename__ = 'tokens'
+    __json_exclude__ = {"createdAt", "updatedAt"}
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4,)
     scope = Column(ARRAY(String))
     value = Column(String)

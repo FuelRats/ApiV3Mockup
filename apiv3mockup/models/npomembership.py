@@ -13,6 +13,7 @@ from datetime import timezone
 
 class NPOmembership(Base):
     __tablename__ = 'npomembership'
+    __json_exclude__ = {"createdAt", "updatedAt"}
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4,)
     userId = Column(UUID, ForeignKey('users.id'))
     user = relationship('User')

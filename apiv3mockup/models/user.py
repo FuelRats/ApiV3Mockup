@@ -15,6 +15,7 @@ from datetime import timezone
 
 class User(Base):
     __tablename__ = 'users'
+    __json_exclude__ = {"createdAt", "updatedAt"}
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4,)
     data = Column(JSONB)
     email = Column(String)

@@ -17,6 +17,7 @@ from datetime import timezone
 
 class Rescue(Base):
     __tablename__ = 'rescues'
+    __json_exclude__ = {"createdAt", "updatedAt"}
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4,)
     client = Column(String(255))
     codeRed = Column(Boolean)

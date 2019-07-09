@@ -13,6 +13,7 @@ from datetime import timezone
 
 class Group(Base):
     __tablename__ = 'groups'
+    __json_exclude__ = {"createdAt", "updatedAt"}
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4,)
     vhost = Column(String)
     isAdministrator = Column(Boolean)

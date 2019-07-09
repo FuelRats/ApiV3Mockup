@@ -15,6 +15,7 @@ from datetime import timezone
 
 class Epic(Base):
     __tablename__ = 'epics'
+    __json_exclude__ = {"createdAt", "updatedAt"}
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4,)
     notes = Column(String)
     rescueId = Column(UUID, ForeignKey('rescues.id'))

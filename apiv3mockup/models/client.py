@@ -14,6 +14,7 @@ from datetime import timezone
 
 class Client(Base):
     __tablename__ = 'clients'
+    __json_exclude__ = {"createdAt", "updatedAt"}
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4,)
     name = Column(String)
     secret = Column(String)
