@@ -6,10 +6,12 @@ from sqlalchemy import (
     DateTime)
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
+from .types.isodatetime import IsoDateTime
 
 from .meta import Base
 import datetime
 from datetime import timezone
+
 
 class NPOmembership(Base):
     __tablename__ = 'npomembership'
@@ -17,5 +19,6 @@ class NPOmembership(Base):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4,)
     userId = Column(UUID, ForeignKey('users.id'))
     user = relationship('User')
-    createdAt = Column(DateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat())
-    updatedAt = Column(DateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat(), onupdate=datetime.datetime.now(timezone.utc).astimezone().isoformat())
+    createdAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat())
+    updatedAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat(), onupdate=datetime.datetime.now(timezone.utc).astimezone().isoformat())
+

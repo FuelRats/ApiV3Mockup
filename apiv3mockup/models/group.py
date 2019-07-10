@@ -6,10 +6,12 @@ from sqlalchemy import (
     DateTime,
     Boolean, Integer, ARRAY)
 from sqlalchemy.dialects.postgresql import UUID
+from .types.isodatetime import IsoDateTime
 
 from .meta import Base
 import datetime
 from datetime import timezone
+
 
 class Group(Base):
     __tablename__ = 'groups'
@@ -19,5 +21,6 @@ class Group(Base):
     isAdministrator = Column(Boolean)
     priority = Column(Integer)
     permissions = Column(ARRAY(String))
-    createdAt = Column(DateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat())
-    updatedAt = Column(DateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat(), onupdate=datetime.datetime.now(timezone.utc).astimezone().isoformat())
+    createdAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat())
+    updatedAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat(), onupdate=datetime.datetime.now(timezone.utc).astimezone().isoformat())
+
