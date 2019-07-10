@@ -26,4 +26,5 @@ class User(Base):
     suspended = Column(IsoDateTime)
     permissions = Column(ARRAY(String))
     createdAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat())
-    updatedAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat(), onupdate=datetime.datetime.now(timezone.utc).astimezone().isoformat())
+    updatedAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat(),
+                       onupdate=datetime.datetime.now(timezone.utc).astimezone().isoformat())

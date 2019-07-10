@@ -1,7 +1,7 @@
 import os
 import sys
-
 import transaction
+
 from pyramid.paster import (
     get_appsettings,
     setup_logging,

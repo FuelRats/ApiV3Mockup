@@ -23,5 +23,6 @@ class Ship(Base):
     ratId = Column(UUID(as_uuid=True), ForeignKey('rats.id'))
     rat = relationship('Rat')
     createdAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat())
-    updatedAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat(), onupdate=datetime.datetime.now(timezone.utc).astimezone().isoformat())
+    updatedAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat(),
+                       onupdate=datetime.datetime.now(timezone.utc).astimezone().isoformat())
 

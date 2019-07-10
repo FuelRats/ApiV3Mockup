@@ -25,5 +25,6 @@ class Token(Base):
     user = relationship('User')
     client = relationship('Client')
     createdAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat())
-    updatedAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat(), onupdate=datetime.datetime.now(timezone.utc).astimezone().isoformat())
+    updatedAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat(),
+                       onupdate=datetime.datetime.now(timezone.utc).astimezone().isoformat())
 

@@ -22,5 +22,6 @@ class RescueRats(Base):
     rescue = relationship('Rescue')
     rat = relationship('Rat')
     createdAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat())
-    updatedAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat(), onupdate=datetime.datetime.now(timezone.utc).astimezone().isoformat())
+    updatedAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat(),
+                       onupdate=datetime.datetime.now(timezone.utc).astimezone().isoformat())
 
