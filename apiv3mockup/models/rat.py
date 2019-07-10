@@ -21,7 +21,7 @@ class Rat(Base):
     name = Column(String(255))
     data = Column(JSONB)
     platform = Column(String)
-    userId = Column(UUID, ForeignKey('users.id'))
+    userId = Column(UUID(as_uuid=True), ForeignKey('users.id'))
     user = relationship('User')
     createdAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat())
     updatedAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat(), onupdate=datetime.datetime.now(timezone.utc).astimezone().isoformat())

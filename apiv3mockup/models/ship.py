@@ -21,7 +21,7 @@ class Ship(Base):
     name = Column(String)
     shipId = Column(Integer)
     shipType = Column(String)
-    ratId = Column(UUID, ForeignKey('rats.id'))
+    ratId = Column(UUID(as_uuid=True), ForeignKey('rats.id'))
     rat = relationship('Rat')
     createdAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat())
     updatedAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat(), onupdate=datetime.datetime.now(timezone.utc).astimezone().isoformat())

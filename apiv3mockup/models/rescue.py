@@ -32,7 +32,7 @@ class Rescue(Base):
     title = Column(String)
     outcome = Column(String)
     unidentifiedRats = Column(ARRAY(String))
-    firstLimpetId = Column(UUID, ForeignKey('rats.id'))
+    firstLimpetId = Column(UUID(as_uuid=True), ForeignKey('rats.id'))
     firstLimpet = relationship('Rat')
     createdAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat())
     updatedAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat(), onupdate=datetime.datetime.now(timezone.utc).astimezone().isoformat())

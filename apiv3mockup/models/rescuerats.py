@@ -17,8 +17,8 @@ class RescueRats(Base):
     __tablename__ = 'rescuerats'
     __json_exclude__ = {"createdAt", "updatedAt"}
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4,)
-    rescueId = Column(UUID, ForeignKey('rescues.id'))
-    ratId = Column(UUID, ForeignKey('rats.id'))
+    rescueId = Column(UUID(as_uuid=True), ForeignKey('rescues.id'))
+    ratId = Column(UUID(as_uuid=True), ForeignKey('rats.id'))
     rescue = relationship('Rescue')
     rat = relationship('Rat')
     createdAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat())
