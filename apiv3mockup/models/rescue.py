@@ -36,4 +36,4 @@ class Rescue(Base):
     firstLimpet = relationship('Rat')
     createdAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat())
     updatedAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat(), onupdate=datetime.datetime.now(timezone.utc).astimezone().isoformat())
-
+    rats = relationship('RescueRats')
