@@ -1,15 +1,14 @@
 from uuid import uuid4
+import datetime
+from datetime import timezone
 
 from sqlalchemy import (
     Column,
-    String,
-    DateTime)
+    String)
 from sqlalchemy.dialects.postgresql import UUID
 
 from .meta import Base
 from .types.isodatetime import IsoDateTime
-import datetime
-from datetime import timezone
 
 
 class Actions(Base):

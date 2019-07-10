@@ -1,18 +1,17 @@
 from uuid import uuid4
+import datetime
+from datetime import timezone
 
 from sqlalchemy import (
     Column,
     String,
-    DateTime,
     Text,
     ForeignKey)
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
-from .types.isodatetime import IsoDateTime
 
+from .types.isodatetime import IsoDateTime
 from .meta import Base
-import datetime
-from datetime import timezone
 
 
 class Decal(Base):
@@ -21,7 +20,7 @@ class Decal(Base):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4,)
     code = Column(String)
     type = Column(String)
-    claimedAt = Column(DateTime)
+    claimedAt = Column(IsoDateTime)
     notes = Column(Text)
     userId = Column(UUID(as_uuid=True), ForeignKey('users.id'))
     user = relationship('User')

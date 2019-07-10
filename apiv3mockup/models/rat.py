@@ -1,17 +1,16 @@
 from uuid import uuid4
+import datetime
+from datetime import timezone
 
 from sqlalchemy import (
     Column,
     String,
-    DateTime,
     ForeignKey)
 from sqlalchemy.dialects.postgresql import JSONB, UUID
 from sqlalchemy.orm import relationship
-from .types.isodatetime import IsoDateTime
 
+from .types.isodatetime import IsoDateTime
 from .meta import Base
-import datetime
-from datetime import timezone
 
 
 class Rat(Base):

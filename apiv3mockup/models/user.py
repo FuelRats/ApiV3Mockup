@@ -1,17 +1,16 @@
 from uuid import uuid4
+import datetime
+from datetime import timezone
 
 from sqlalchemy import (
     Column,
     String,
     ARRAY,
-    DateTime,
     LargeBinary)
 from sqlalchemy.dialects.postgresql import JSONB, UUID
-from .types.isodatetime import IsoDateTime
 
+from .types.isodatetime import IsoDateTime
 from .meta import Base
-import datetime
-from datetime import timezone
 
 
 class User(Base):
@@ -24,7 +23,7 @@ class User(Base):
     nicknames = Column(ARRAY(String))
     image = Column(LargeBinary)
     status = Column(String)
-    suspended = Column(DateTime)
+    suspended = Column(IsoDateTime)
     permissions = Column(ARRAY(String))
     createdAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat())
     updatedAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat(), onupdate=datetime.datetime.now(timezone.utc).astimezone().isoformat())
