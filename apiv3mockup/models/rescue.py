@@ -17,7 +17,7 @@ from .types.isodatetime import IsoDateTime
 from .meta import Base
 from sqlalchemy import Table
 
-Rescue_Rats = Table('Rescue_Rats', Base.metadata,
+Rescue_Rats = Table('rescuerats', Base.metadata,
                     Column('rescueId', UUID(as_uuid=True), ForeignKey('rescues.id')),
                     Column('ratId', UUID(as_uuid=True), ForeignKey('rats.id')))
 

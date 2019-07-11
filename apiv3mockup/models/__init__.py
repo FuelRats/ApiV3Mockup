@@ -15,7 +15,6 @@ from .epic import Epic
 from .group import Group
 from .npomembership import NPOmembership
 from .rescue import Rescue
-from .rescuerats import RescueRats
 from .ship import Ship
 from .token import Token
 from .user import User
