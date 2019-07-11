@@ -15,6 +15,11 @@ from sqlalchemy.orm import relationship
 
 from .types.isodatetime import IsoDateTime
 from .meta import Base
+from sqlalchemy import Table
+
+Rescue_Rats = Table('Rescue_Rats', Base.metadata,
+                    Column('rescueId', UUID(as_uuid=True), ForeignKey('rescues.id')),
+                    Column('ratId', UUID(as_uuid=True), ForeignKey('rats.id')))
 
 
 class Rescue(Base):
@@ -37,4 +42,4 @@ class Rescue(Base):
     createdAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat())
     updatedAt = Column(IsoDateTime, default=datetime.datetime.now(timezone.utc).astimezone().isoformat(),
                        onupdate=datetime.datetime.now(timezone.utc).astimezone().isoformat())
-    rats = relationship('RescueRats')
+    rats = relationship('Rat', secondary=Rescue_Rats)

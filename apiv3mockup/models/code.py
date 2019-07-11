@@ -14,6 +14,9 @@ from .meta import Base
 
 
 class Code(Base):
+    """
+    Contains oauth codes for the API
+    """
     __tablename__ = 'codes'
     __json_exclude__ = {"createdAt", "updatedAt"}
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4,)

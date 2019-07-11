@@ -15,6 +15,9 @@ from .meta import Base
 
 
 class Decal(Base):
+    """
+    Provides decal codes for redeeming the Fuel Rats decal from the Frontier Store.
+    """
     __tablename__ = 'decals'
     __json_exclude__ = {"createdAt", "updatedAt"}
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4,)
